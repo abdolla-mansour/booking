@@ -53,8 +53,6 @@
 <!-- jsGrid -->
 <script src="{{ asset('dashboard_assets/plugins/jsgrid/demos/db.js') }}"></script>
 <script src="{{ asset('dashboard_assets/plugins/jsgrid/jsgrid.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('dashboard_assets/dist/js/adminlte.min.js') }}"></script>
 <!-- Page specific script -->
 <script>
   $(function () {

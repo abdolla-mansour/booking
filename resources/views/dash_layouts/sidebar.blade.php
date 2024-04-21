@@ -294,7 +294,7 @@
           </li>
           <li class="nav-header">EXAMPLES</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="{{ route('dashboard.pages.calender') }}" class="nav-link @yield('active_nav_calender', '')">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Calendar
@@ -303,7 +303,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="{{ route('dashboard.pages.gallery') }}" class="nav-link @yield('active_nav_gallery', '')">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Gallery
@@ -311,7 +311,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/kanban.html" class="nav-link">
+            <a href="{{ route('dashboard.pages.kanban') }}" class="nav-link @yield('active_nav_kanban', '')">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Kanban Board
@@ -319,7 +319,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link @yield('active_nav_mailbox', '')">
               <i class="nav-icon far fa-envelope"></i>
               <p>
                 Mailbox
@@ -328,19 +328,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.mailbox.mailbox') }}" class="nav-link @yield('active_link_mailbox_mailbox', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Inbox</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.mailbox.compose') }}" class="nav-link @yield('active_link_mailbox_compose', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Compose</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/mailbox/read-mail.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.mailbox.read') }}" class="nav-link @yield('active_link_mailbox_read', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Read</p>
                 </a>
@@ -348,7 +348,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link @yield('active_nav_pages', '')">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Pages
@@ -357,61 +357,61 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/examples/invoice.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.invoice') }}" class="nav-link @yield('active_link_examples_invoice', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Invoice</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/profile.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.profile') }}" class="nav-link @yield('active_link_examples_profile', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profile</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/e-commerce.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.e-commerce') }}" class="nav-link @yield('active_link_examples_ecommerce', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>E-commerce</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/projects.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.projects') }}" class="nav-link @yield('active_link_examples_projects', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Projects</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/project-add.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.project-add') }}" class="nav-link @yield('active_link_examples_project_add', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Add</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/project-edit.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.project-edit') }}" class="nav-link @yield('active_link_examples_project_edit', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Edit</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/project-detail.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.project-detail') }}" class="nav-link @yield('active_link_examples_project_detail', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Detail</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/contacts.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.contacts') }}" class="nav-link @yield('active_link_examples_contacts', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Contacts</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/faq.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.faq') }}" class="nav-link @yield('active_link_examples_faq', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>FAQ</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/contact-us.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.contact-us') }}" class="nav-link @yield('active_link_examples_contact_us', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Contact us</p>
                 </a>
@@ -419,7 +419,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link @yield('active_nav_extras', '')">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Extras
@@ -437,25 +437,25 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="pages/examples/login.html" class="nav-link">
+                    <a href="{{ route('dashboard.pages.examples.login') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Login v1</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="pages/examples/register.html" class="nav-link">
+                    <a href="{{ route('dashboard.pages.examples.register') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Register v1</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="pages/examples/forgot-password.html" class="nav-link">
+                    <a href="{{ route('dashboard.pages.examples.forgot-password') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Forgot Password v1</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="pages/examples/recover-password.html" class="nav-link">
+                    <a href="{{ route('dashboard.pages.examples.recover-password') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Recover Password v1</p>
                     </a>
@@ -472,25 +472,25 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="pages/examples/login-v2.html" class="nav-link">
+                    <a href="{{ route('dashboard.pages.examples.login-v2') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Login v2</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="pages/examples/register-v2.html" class="nav-link">
+                    <a href="{{ route('dashboard.pages.examples.register-v2') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Register v2</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="pages/examples/forgot-password-v2.html" class="nav-link">
+                    <a href="{{ route('dashboard.pages.examples.forgot-password-v2') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Forgot Password v2</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="pages/examples/recover-password-v2.html" class="nav-link">
+                    <a href="{{ route('dashboard.pages.examples.recover-password-v2') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Recover Password v2</p>
                     </a>
@@ -498,49 +498,49 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/lockscreen.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.lockscreen') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lockscreen</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/legacy-user-menu.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.legacy-user-menu') }}" class="nav-link @yield('active_link_examples_legacy_user_menu', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Legacy User Menu</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/language-menu.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.language-menu') }}" class="nav-link @yield('active_link_examples_language_menu', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Language Menu</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/404.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.404') }}" class="nav-link @yield('active_link_examples_404', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Error 404</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/500.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.500') }}" class="nav-link @yield('active_link_examples_500', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Error 500</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/pace.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.pace') }}" class="nav-link @yield('active_link_examples_pace', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pace</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/blank.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.examples.blank') }}" class="nav-link @yield('active_link_examples_blank', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Blank Page</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="starter.html" class="nav-link">
+                <a href="{{ route('dashboard.starter') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Starter Page</p>
                 </a>
@@ -548,7 +548,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link @yield('active_nav_search', '')">
               <i class="nav-icon fas fa-search"></i>
               <p>
                 Search
@@ -557,13 +557,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/search/simple.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.search.simple') }}" class="nav-link @yield('active_link_search_simple', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Simple Search</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/search/enhanced.html" class="nav-link">
+                <a href="{{ route('dashboard.pages.search.enhanced') }}" class="nav-link @yield('active_link_search_enhanced', '')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Enhanced</p>
                 </a>
@@ -572,7 +572,7 @@
           </li>
           <li class="nav-header">MISCELLANEOUS</li>
           <li class="nav-item">
-            <a href="iframe.html" class="nav-link">
+            <a href="{{ route('dashboard.iframe') }}" class="nav-link @yield('active_nav_iframe', '')">
               <i class="nav-icon fas fa-ellipsis-h"></i>
               <p>Tabbed IFrame Plugin</p>
             </a>
