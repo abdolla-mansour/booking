@@ -30,7 +30,7 @@
 
                     <div class="thumb1">
                         <div class="thumbnail clearfix">
-                            <figure class=""><img src="{{ asset('booking_assets/images/about01.jpg') }}" alt=""></figure>
+                            <figure class=""><img style="max-width: 300px" src="{{ asset('booking_assets/images/about01.jpg') }}" alt=""></figure>
                             <div class="caption">
                                 <p>
                                     Nulla ultricies enim aliquet augue eleifend iaculis. Nam sollicitudin ligula ac nisi iaculis eu scelerisque risus ultricies. Nullam eu elit risus, vel
@@ -271,7 +271,7 @@
                                     <li>
                                         <div class="testimonial">
                                             <div class="testimonial_inner clearfix">
-                                                <figure><img src="{{ asset('booking_assets/images/team01.jpg') }}" alt="" class="img"></figure>
+                                                <figure><img style="max-width: 127px" src="{{ asset('booking_assets/images/team01.jpg') }}" alt="" class="img"></figure>
                                                 <div class="caption">
                                                     <div class="txt1">Ipsum dolor sit amet conse ctetur adipisicing elit</div>
                                                     <div class="txt2">Nulla ultricies enim aliquet augue eleifend iaculis. Nam sollicitudin ligula ac nisi iaculis eu scelerisque risus
@@ -287,7 +287,7 @@
                                     <li>
                                         <div class="testimonial">
                                             <div class="testimonial_inner clearfix">
-                                                <figure><img src="{{ asset('booking_assets/images/team02.jpg') }}" alt="" class="img"></figure>
+                                                <figure><img style="max-width: 127px" src="{{ asset('booking_assets/images/team02.jpg') }}" alt="" class="img"></figure>
                                                 <div class="caption">
                                                     <div class="txt1">Ipsum dolor sit amet conse ctetur adipisicing elit</div>
                                                     <div class="txt2">Nulla ultricies enim aliquet augue eleifend iaculis. Nam sollicitudin ligula ac nisi iaculis eu scelerisque risus
@@ -303,7 +303,7 @@
                                     <li>
                                         <div class="testimonial">
                                             <div class="testimonial_inner clearfix">
-                                                <figure><img src="{{ asset('booking_assets/images/team03.jpg') }}" alt="" class="img"></figure>
+                                                <figure><img style="max-width: 127px" src="{{ asset('booking_assets/images/team03.jpg') }}" alt="" class="img"></figure>
                                                 <div class="caption">
                                                     <div class="txt1">Ipsum dolor sit amet conse ctetur adipisicing elit</div>
                                                     <div class="txt2">Nulla ultricies enim aliquet augue eleifend iaculis. Nam sollicitudin ligula ac nisi iaculis eu scelerisque risus
@@ -319,7 +319,7 @@
                                     <li>
                                         <div class="testimonial">
                                             <div class="testimonial_inner clearfix">
-                                                <figure><img src="{{ asset('booking_assets/images/team04.jpg') }}" alt="" class="img"></figure>
+                                                <figure><img style="max-width: 127px" src="{{ asset('booking_assets/images/team04.jpg') }}" alt="" class="img"></figure>
                                                 <div class="caption">
                                                     <div class="txt1">Ipsum dolor sit amet conse ctetur adipisicing elit</div>
                                                     <div class="txt2">Nulla ultricies enim aliquet augue eleifend iaculis. Nam sollicitudin ligula ac nisi iaculis eu scelerisque risus
@@ -335,7 +335,7 @@
                                     <li>
                                         <div class="testimonial">
                                             <div class="testimonial_inner clearfix">
-                                                <figure><img src="{{ asset('booking_assets/images/team05.jpg') }}" alt="" class="img"></figure>
+                                                <figure><img style="max-width: 127px" src="{{ asset('booking_assets/images/team05.jpg') }}" alt="" class="img"></figure>
                                                 <div class="caption">
                                                     <div class="txt1">Ipsum dolor sit amet conse ctetur adipisicing elit</div>
                                                     <div class="txt2">Nulla ultricies enim aliquet augue eleifend iaculis. Nam sollicitudin ligula ac nisi iaculis eu scelerisque risus

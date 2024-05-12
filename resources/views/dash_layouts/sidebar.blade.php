@@ -2,9 +2,9 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{ route('dashboard.main') }}" class="brand-link">
       <img src="{{ asset('dashboard_assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Dashboard</span>
     </a>
 
     <!-- Sidebar -->
@@ -36,41 +36,19 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu">
-            <a href="#" class="nav-link @yield('active_nav_dashboard', '')">
+          <li class="nav-item">
+            <a href="{{ route('dashboard.main') }}" class="nav-link @yield('active_nav_dashboard', '')">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('dashboard.main') }}" class="nav-link @yield('active_link_main', '')">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('dashboard.v2') }}" class="nav-link @yield('active_link_v2', '')">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('dashboard.v3') }}" class="nav-link @yield('active_link_v3', '')">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-item">
-            <a href="{{ route('dashboard.pages.widgets') }}" class="nav-link @yield('active_nav_widget', '')">
-              <i class="nav-icon fas fa-th"></i>
+            <a href="{{ route('dashboard.users.index') }}" class="nav-link @yield('active_nav_user', '')">
+              <i class="nav-icon fas fa-users"></i>
               <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
+                Users
               </p>
             </a>
           </li>

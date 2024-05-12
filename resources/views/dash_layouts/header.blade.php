@@ -28,7 +28,7 @@
 
   @yield('header', '')
 
-<body class="sidebar-mini @yield('layout_style', '')">
+<body class="sidebar-mini dark-mode layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -37,7 +37,7 @@
   </div>
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-@yield('mode', 'light  navbar-white')">
+  <nav class="main-header navbar navbar-expand navbar-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">

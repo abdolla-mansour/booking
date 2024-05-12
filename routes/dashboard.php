@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/dashboard')
@@ -8,9 +9,7 @@ Route::prefix('/dashboard')
     ->group(function () {
 
         // Dashboard
-        Route::view('/', 'index')->name('main');
-        Route::view('v2', 'index2')->name('v2');
-        Route::view('v3', 'index3')->name('v3');
+        Route::view('/', 'index2')->name('main');
 
         // Starter Page
         Route::view('starter', 'starter')->name('starter');
@@ -18,8 +17,8 @@ Route::prefix('/dashboard')
         //  Tabbed IFrame Plugin
         Route::view('iframe', 'iframe')->name('iframe');
 
-        // Widgets
-        Route::view('widgets', 'pages.widgets')->name('pages.widgets');
+        // Users
+        Route::resource('users', UserController::class);
 
         // layouts
         Route::view('layout', 'pages.layout.top-nav')->name('pages.layout-nav');
