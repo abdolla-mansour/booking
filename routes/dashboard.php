@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,9 @@ Route::prefix('/dashboard')
 
         // Users
         Route::resource('users', UserController::class);
+
+        // Property
+        Route::resource('props', PropertyController::class);
 
         // layouts
         Route::view('layout', 'pages.layout.top-nav')->name('pages.layout-nav');

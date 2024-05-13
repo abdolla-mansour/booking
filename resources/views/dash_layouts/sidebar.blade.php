@@ -53,6 +53,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('dashboard.props.index') }}" class="nav-link @yield('active_nav_property', '')">
+              <i class="fas fa-laptop-house"></i>
+              <p>
+                Properties
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link {{ $active_layouts ?? '' }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>

@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'description',
+        'count_rooms',
+        'count_bedrooms',
+        'count_bathrooms',
+        'salary',
+    ];
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }
