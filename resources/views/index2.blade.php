@@ -80,8 +80,8 @@
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">New Members</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-text">Count Of Members</span>
+                <span class="info-box-number">{{ $count - 1 }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -106,7 +106,6 @@
                     <h3 class="card-title">Latest Members</h3>
 
                     <div class="card-tools">
-                      <span class="badge badge-danger">8 New Members</span>
                       <button type="button" class="btn btn-tool" data-card-widget="collapse">
                         <i class="fas fa-minus"></i>
                       </button>
@@ -118,52 +117,23 @@
                   <!-- /.card-header -->
                   <div class="card-body p-0">
                     <ul class="users-list clearfix">
-                      <li>
-                        <img src="{{ asset('dashboard_assets/dist/img/user1-128x128.jpg') }}" alt="User Image">
-                        <a class="users-list-name" href="#">Alexander Pierce</a>
-                        <span class="users-list-date">Today</span>
-                      </li>
-                      <li>
-                        <img src="{{ asset('dashboard_assets/dist/img/user8-128x128.jpg') }}" alt="User Image">
-                        <a class="users-list-name" href="#">Norman</a>
-                        <span class="users-list-date">Yesterday</span>
-                      </li>
-                      <li>
-                        <img src="{{ asset('dashboard_assets/dist/img/user7-128x128.jpg') }}" alt="User Image">
-                        <a class="users-list-name" href="#">Jane</a>
-                        <span class="users-list-date">12 Jan</span>
-                      </li>
-                      <li>
-                        <img src="{{ asset('dashboard_assets/dist/img/user6-128x128.jpg') }}" alt="User Image">
-                        <a class="users-list-name" href="#">John</a>
-                        <span class="users-list-date">12 Jan</span>
-                      </li>
-                      <li>
-                        <img src="{{ asset('dashboard_assets/dist/img/user2-160x160.jpg') }}" alt="User Image">
-                        <a class="users-list-name" href="#">Alexander</a>
-                        <span class="users-list-date">13 Jan</span>
-                      </li>
-                      <li>
-                        <img src="{{ asset('dashboard_assets/dist/img/user5-128x128.jpg') }}" alt="User Image">
-                        <a class="users-list-name" href="#">Sarah</a>
-                        <span class="users-list-date">14 Jan</span>
-                      </li>
-                      <li>
-                        <img src="{{ asset('dashboard_assets/dist/img/user4-128x128.jpg') }}" alt="User Image">
-                        <a class="users-list-name" href="#">Nora</a>
-                        <span class="users-list-date">15 Jan</span>
-                      </li>
-                      <li>
-                        <img src="{{ asset('dashboard_assets/dist/img/user3-128x128.jpg') }}" alt="User Image">
-                        <a class="users-list-name" href="#">Nadia</a>
-                        <span class="users-list-date">15 Jan</span>
-                      </li>
+                      @foreach ($latestUsers as $user)
+                        <li>
+                          @if($user->image)
+                            <img src="{{ asset('users_image/' . $user->image->name) }}" alt="User Image">
+                          @else
+                            <img src="{{ asset('users_image/default.jpg') }}" alt="User Image">
+                          @endif
+                          <a class="users-list-name" href="#">{{ $user->name }}</a>
+                          <span class="users-list-date">{{ $user->created_at->format('d F') }}</span>
+                        </li>
+                      @endforeach
                     </ul>
                     <!-- /.users-list -->
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-center">
-                    <a href="javascript:">View All Users</a>
+                    <a href="{{ route('dashboard.users.index') }}">View All Users</a>
                   </div>
                   <!-- /.card-footer -->
                 </div>
@@ -174,7 +144,7 @@
               <div class="card col-md-6">
 
                 <div class="card-header">
-                  <h3 class="card-title">Recently Added Products</h3>
+                  <h3 class="card-title">Last 4 Properties</h3>
 
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -188,61 +158,20 @@
                 <!-- /.card-header -->
                 <div class="card-body p-0">
                   <ul class="products-list product-list-in-card pl-2 pr-2">
-                    <li class="item">
-                      <div class="product-img">
-                        <img src="{{ asset('dashboard_assets/dist/img/default-150x150.png') }}" alt="Product Image" class="img-size-50">
-                      </div>
-                      <div class="product-info">
-                        <a href="javascript:void(0)" class="product-title">Samsung TV
-                          <span class="badge badge-warning float-right">$1800</span></a>
-                        <span class="product-description">
-                          Samsung 32" 1080p 60Hz LED Smart HDTV.
-                        </span>
-                      </div>
-                    </li>
-                    <!-- /.item -->
-                    <li class="item">
-                      <div class="product-img">
-                        <img src="{{ asset('dashboard_assets/dist/img/default-150x150.png') }}" alt="Product Image" class="img-size-50">
-                      </div>
-                      <div class="product-info">
-                        <a href="javascript:void(0)" class="product-title">Bicycle
-                          <span class="badge badge-info float-right">$700</span></a>
-                        <span class="product-description">
-                          26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-                        </span>
-                      </div>
-                    </li>
-                    <!-- /.item -->
-                    <li class="item">
-                      <div class="product-img">
-                        <img src="{{ asset('dashboard_assets/dist/img/default-150x150.png') }}" alt="Product Image" class="img-size-50">
-                      </div>
-                      <div class="product-info">
-                        <a href="javascript:void(0)" class="product-title">
-                          Xbox One <span class="badge badge-danger float-right">
-                          $350
-                        </span>
-                        </a>
-                        <span class="product-description">
-                          Xbox One Console Bundle with Halo Master Chief Collection.
-                        </span>
-                      </div>
-                    </li>
-                    <!-- /.item -->
-                    <li class="item">
-                      <div class="product-img">
-                        <img src="{{ asset('dashboard_assets/dist/img/default-150x150.png') }}" alt="Product Image" class="img-size-50">
-                      </div>
-                      <div class="product-info">
-                        <a href="javascript:void(0)" class="product-title">PlayStation 4
-                          <span class="badge badge-success float-right">$399</span></a>
-                        <span class="product-description">
-                          PlayStation 4 500GB Console (PS4)
-                        </span>
-                      </div>
-                    </li>
-                    <!-- /.item -->
+                    @foreach ($latestProperties as $prop)
+                      <li class="item">
+                        <div class="product-img">
+                            <img src="{{ asset('properties_image/' . $prop->image->name) }}" alt="Product Image" class="img-size-50">
+                        </div>
+                        <div class="product-info">
+                          <a href="javascript:void(0)" class="product-title">{{ $prop->title }}</a>
+                          <span class="product-description">
+                            {{ $prop->description }}
+                          </span>
+                        </div>
+                      </li>
+                      <!-- /.item -->
+                    @endforeach
                   </ul>
                 </div>
                 <!-- /.card-body -->

@@ -28,113 +28,21 @@
                     <h2><span>Selling List</span></h2>
 
                     <div class="row">
-                        <div class="span3">
-                            <div class="thumb3">
-                                <div class="thumbnail clearfix">
-                                    <figure><img src="{{ asset('booking_assets/images/sales01.jpg') }}" alt="" class="img"></figure>
-                                    <div class="caption">
-                                        <div class="txt1">LOREM IPSUM DOL AMET</div>
-                                        <div class="txt2">Lorem ipsum dolor sit amet, conse etur et adipiscing elit. Duis vel nisifes. Vestibulum ullamcorper dolore ipsum.</div>
-                                        <div class="txt3">$570.000</div>
-                                        <a href="#" class="button2">Read More</a>
+                        @foreach ($props as $prop)
+                            <div class="span3">
+                                <div class="thumb3">
+                                    <div class="thumbnail clearfix">
+                                        <figure><img src="{{ asset('properties_image/' . $prop->image->name) }}" alt="" class="img"></figure>
+                                        <div class="caption">
+                                            <div class="txt1">{{ $prop->title }}</div>
+                                            <div class="txt2">{{ $prop->description }}</div>
+                                            <div class="txt3">${{ number_format($prop->salary) }}</div>
+                                            <a href="#" class="button2">Read More</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="span3">
-                            <div class="thumb3">
-                                <div class="thumbnail clearfix">
-                                    <figure><img src="{{ asset('booking_assets/images/sales02.jpg') }}" alt="" class="img"></figure>
-                                    <div class="caption">
-                                        <div class="txt1">LOREM IPSUM DOL AMET</div>
-                                        <div class="txt2">Lorem ipsum dolor sit amet, conse etur et adipiscing elit. Duis vel nisifes. Vestibulum ullamcorper dolore ipsum.</div>
-                                        <div class="txt3">$140.000</div>
-                                        <a href="#" class="button2">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span3">
-                            <div class="thumb3">
-                                <div class="thumbnail clearfix">
-                                    <figure><img src="{{ asset('booking_assets/images/sales03.jpg') }}" alt="" class="img"></figure>
-                                    <div class="caption">
-                                        <div class="txt1">LOREM IPSUM DOL AMET</div>
-                                        <div class="txt2">Lorem ipsum dolor sit amet, conse etur et adipiscing elit. Duis vel nisifes. Vestibulum ullamcorper dolore ipsum.</div>
-                                        <div class="txt3">$220.000</div>
-                                        <a href="#" class="button2">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span3">
-                            <div class="thumb3">
-                                <div class="thumbnail clearfix">
-                                    <figure><img src="{{ asset('booking_assets/images/sales04.jpg') }}" alt="" class="img"></figure>
-                                    <div class="caption">
-                                        <div class="txt1">LOREM IPSUM DOL AMET</div>
-                                        <div class="txt2">Lorem ipsum dolor sit amet, conse etur et adipiscing elit. Duis vel nisifes. Vestibulum ullamcorper dolore ipsum.</div>
-                                        <div class="txt3">$800.000</div>
-                                        <a href="#" class="button2">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="span3">
-                            <div class="thumb3">
-                                <div class="thumbnail clearfix">
-                                    <figure><img src="{{ asset('booking_assets/images/sales05.jpg') }}" alt="" class="img"></figure>
-                                    <div class="caption">
-                                        <div class="txt1">LOREM IPSUM DOL AMET</div>
-                                        <div class="txt2">Lorem ipsum dolor sit amet, conse etur et adipiscing elit. Duis vel nisifes. Vestibulum ullamcorper dolore ipsum.</div>
-                                        <div class="txt3">$410.000</div>
-                                        <a href="#" class="button2">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span3">
-                            <div class="thumb3">
-                                <div class="thumbnail clearfix">
-                                    <figure><img src="{{ asset('booking_assets/images/sales06.jpg') }}" alt="" class="img"></figure>
-                                    <div class="caption">
-                                        <div class="txt1">LOREM IPSUM DOL AMET</div>
-                                        <div class="txt2">Lorem ipsum dolor sit amet, conse etur et adipiscing elit. Duis vel nisifes. Vestibulum ullamcorper dolore ipsum.</div>
-                                        <div class="txt3">$570.000</div>
-                                        <a href="#" class="button2">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span3">
-                            <div class="thumb3">
-                                <div class="thumbnail clearfix">
-                                    <figure><img src="{{ asset('booking_assets/images/sales07.jpg') }}" alt="" class="img"></figure>
-                                    <div class="caption">
-                                        <div class="txt1">LOREM IPSUM DOL AMET</div>
-                                        <div class="txt2">Lorem ipsum dolor sit amet, conse etur et adipiscing elit. Duis vel nisifes. Vestibulum ullamcorper dolore ipsum.</div>
-                                        <div class="txt3">$650.000</div>
-                                        <a href="#" class="button2">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span3">
-                            <div class="thumb3">
-                                <div class="thumbnail clearfix">
-                                    <figure><img src="{{ asset('booking_assets/images/sales08.jpg') }}" alt="" class="img"></figure>
-                                    <div class="caption">
-                                        <div class="txt1">LOREM IPSUM DOL AMET</div>
-                                        <div class="txt2">Lorem ipsum dolor sit amet, conse etur et adipiscing elit. Duis vel nisifes. Vestibulum ullamcorper dolore ipsum.</div>
-                                        <div class="txt3">$290.000</div>
-                                        <a href="#" class="button2">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

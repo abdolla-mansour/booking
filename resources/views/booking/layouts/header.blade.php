@@ -87,9 +87,13 @@
                         <a href="#" class="searchBtn"></a>
 
                         <div class="search-form-wrapper">
-                            <form id="search-form" action="search.php" method="GET" accept-charset="utf-8" class="navbar-form">
-                                <input type="text" name="s" value='Search' onBlur="if(this.value=='') this.value='Search'" onFocus="if(this.value =='Search' ) this.value=''">
-                                <a href="#" onClick="document.getElementById('search-form').submit()"></a>
+                            <form id="search-form" action="" method="GET" accept-charset="utf-8" class="navbar-form">
+                                <label for="">Salary</label>
+                                <input style="margin-bottom: 12px;max-width: 27%;" class="d-inline" type="text" name="s" value='From' onBlur="if(this.value=='') this.value='From'" onFocus="if(this.value =='From' ) this.value=''">
+                                <input style="margin-bottom: 12px;max-width: 27%;" class="d-inline" type="text" name="s" value='To' onBlur="if(this.value=='') this.value='To'" onFocus="if(this.value =='To' ) this.value=''">
+                                <input style="margin-bottom: 12px" type="text" name="s" value='Count of pathroom' onBlur="if(this.value=='') this.value='Count of pathroom'" onFocus="if(this.value =='Count of pathroom' ) this.value=''">
+                                <input style="margin-bottom: 12px" type="text" name="s" value='Count of baderoom' onBlur="if(this.value=='') this.value='Count of baderoom'" onFocus="if(this.value =='Count of baderoom' ) this.value=''">
+                                <a style="position: relative" href="#" onClick="document.getElementById('search-form').submit()"></a>
                             </form>
                         </div>
 

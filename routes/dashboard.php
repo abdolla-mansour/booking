@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,7 +12,7 @@ Route::prefix('/dashboard')
     ->group(function () {
 
         // Dashboard
-        Route::view('/', 'index2')->name('main');
+        Route::get('/', DashboardController::class)->name('main');
 
         // Starter Page
         Route::view('starter', 'starter')->name('starter');
@@ -23,6 +25,15 @@ Route::prefix('/dashboard')
 
         // Property
         Route::resource('props', PropertyController::class);
+
+        // Room
+        Route::resource('rooms', RoomController::class);
+        Route::get('rooms/create/{id}', [RoomController::class, 'create'])->name('rooms.create');
+        Route::get('rooms/{id}/{property_id}', [RoomController::class, 'edit'])->name('rooms.edit');
+        Route::put('rooms/{id}/{property_id}', [RoomController::class, 'update'])->name('rooms.update');
+        Route::delete('rooms/{id}/{property_id}', [RoomController::class, 'destroy'])->name('rooms.destroy');
+        // Route::post('rooms/{id}', [RoomController::class, 'store'])->name('rooms.store');
+        // Route::get('rooms/{id}', [RoomController::class, 'my_index'])->name('rooms.index');
 
         // layouts
         Route::view('layout', 'pages.layout.top-nav')->name('pages.layout-nav');

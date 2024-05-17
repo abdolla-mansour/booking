@@ -7,6 +7,8 @@ use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use function PHPUnit\Framework\isNull;
+
 class PropertyController extends Controller
 {
     /**
