@@ -6,7 +6,10 @@ use App\Models\Room;
 use App\Models\Image;
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class RoomController extends Controller
 {
@@ -34,6 +37,7 @@ class RoomController extends Controller
         $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
+            'type' => 'required|string|' . Rule::in(['baderoom', 'bathroom', 'kitchen']),
             'image' => 'required|image',
             'property_id' => 'required|exists:properties,id',
         ]);
@@ -41,6 +45,7 @@ class RoomController extends Controller
         $room = new Room;
         $room->title = $request->title;
         $room->description = $request->description;
+        $room->type = $request->type;
         $room->property_id = $request->property_id;
         $room->save();
 
@@ -48,7 +53,9 @@ class RoomController extends Controller
 
         $image_name = uniqid() . '.' . $image->getClientOriginalExtension();
 
-        $image->move(public_path('rooms_image'), $image_name);
+        $manager = new ImageManager(new Driver);
+        $image = $manager->read($image)->cover(356, 268);
+        $image->save(public_path('rooms_image/' . $image_name));
 
         Image::create([
             'imageable_type' => Room::class,
@@ -84,6 +91,7 @@ class RoomController extends Controller
         $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
+            'type' => 'required|string|' . Rule::in(['baderoom', 'bathroom', 'kitchen']),
             'property_id' => 'required|exists:properties,id',
             'image' => 'nullable|image',
         ]);
@@ -91,6 +99,7 @@ class RoomController extends Controller
         $room = Room::find($id);
         $room->title = $request->title;
         $room->description = $request->description;
+        $room->type = $request->type;
         $room->property_id = $request->property_id;
         $room->save();
 
@@ -104,9 +113,11 @@ class RoomController extends Controller
             $image = $request->file('image');
     
             $image_name = uniqid() . '.' . $image->getClientOriginalExtension();
-    
-            $image->move(public_path('rooms_image'), $image_name);
-    
+
+            $manager = ImageManager::withDriver(Driver::class);
+            $image = $manager->read($image)->cover(356, 268);
+            $image->save(public_path('rooms_image/'. $image_name));
+
             $img = Image::where('imageable_type', Room::class)->where('imageable_id',  $room->id)->first();
             $img->name = $image_name;
             $img->save();

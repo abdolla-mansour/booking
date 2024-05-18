@@ -53,6 +53,12 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                             <br>
+                            <select class="form-control" name="type">
+                                <option @selected((old('type') ?? $room->type) == 'baderoom') value="baderoom">Baderoom</option>
+                                <option @selected((old('type') ?? $room->type) == 'bathroom') value="bathroom">Bathroom</option>
+                                <option @selected((old('type') ?? $room->type) == 'kitchen') value="kitchen">Kitchen</option>
+                            </select>
+                            <br>
                             <div class="custom-file">
                                 <input onchange="changeImage(event)" name="image" type="file" class="custom-file-input" id="customFile">
                                 <label class="custom-file-label" for="customFile">Choose file</label>

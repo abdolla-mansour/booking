@@ -176,7 +176,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer text-center">
-                  <a href="javascript:void(0)" class="uppercase">View All Products</a>
+                  <a href="{{ route('dashboard.props.index') }}" class="uppercase">View All Properties</a>
                 </div>
                 <!-- /.card-footer -->
               </div>

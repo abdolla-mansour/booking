@@ -58,6 +58,7 @@
                                             <th>Image</th>
                                             <th>Title</th>
                                             <th>Description</th>
+                                            <th>Type</th>
                                             <th>control</th>
                                         </tr>
                                     </thead>
@@ -66,14 +67,11 @@
                                             <tr>
                                                 <td>{{ $room->id }}</td>
                                                 <td>
-                                                    @if ($room->image)
-                                                        <img style="border-radius: 50%" width="50" height="50" src="{{ asset('rooms_image/' . $room->image->name) }}" alt="">
-                                                    @else   
-                                                        <img style="border-radius: 50%" width="50" height="50" src="{{ asset('rooms_image/default.jpg') }}" alt="">
-                                                    @endif
+                                                    <img style="border-radius: 50%" width="50" height="50" src="{{ asset('rooms_image/' . $room->image->name) }}" alt="">
                                                 </td>
                                                 <td>{{ $room->title }}</td>
                                                 <td>{{ $room->description }}</td>
+                                                <td>{{ $room->type }}</td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <form action="{{ route('dashboard.rooms.destroy', [$room->id, $property_id]) }}" method="POST">

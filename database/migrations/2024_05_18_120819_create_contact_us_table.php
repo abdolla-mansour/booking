@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rooms', function (Blueprint $table) {
+        Schema::create('contact_us', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->enum('type', ['bathroom', 'Bedrooms', 'kitchen']);
-            $table->foreignId('property_id')->constrained('properties', 'id')->onDelete('cascade');
+            $table->string('username');
+            $table->string('email');
+            $table->string('phone');
+            $table->enum('read', ['0', '1']);
+            $table->text('message');
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rooms');
+        Schema::dropIfExists('contact_us');
     }
 };

@@ -74,7 +74,14 @@
                                                     <img style="border-radius: 50%" width="50" height="50" src="{{ asset('properties_image/' . $prop->image->name) }}" alt="">
                                                 </td>
                                                 <td>{{ $prop->title }}</td>
-                                                <td>{{ $prop->description }}</td>
+                                                <td style="
+                                                        display: block;
+                                                        overflow: hidden;
+                                                        text-overflow: ellipsis;
+                                                        width: 200px;
+                                                    ">
+                                                    {{ $prop->description }}
+                                                </td>
                                                 <td>{{ $prop->count_rooms }}</td>
                                                 <td>{{ $prop->count_bedrooms }}</td>
                                                 <td>{{ $prop->count_bathrooms }}</td>

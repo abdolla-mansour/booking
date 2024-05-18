@@ -12,7 +12,11 @@
 
                     <h1>Gallery</h1>
 
-                    <div class="breadcrumbs1"><a href="index.html">Home</a><span></span><a href="index.html">Pages</a><span></span>Gallery</div>
+                    <div class="breadcrumbs1">
+                        <a href="">Home</a>
+                        <span><a href="">Pages</a></span>
+                        <span>Gallery</span>
+                    </div>
 
 
                 </div>
@@ -25,144 +29,56 @@
             <div class="row">
                 <div class="span12">
 
-                    <h2><span>Our Photos</span></h2>
+                    <h2><span>{{ $prop->title }}</span></h2>
+
+
+                    <div class="thumb1">
+                        <div class="thumbnail clearfix">
+                            <figure class=""><img style="max-width: 300px" src="{{ asset('properties_image/' . $prop->image->name) }}" alt=""></figure>
+                            <div class="caption">
+                                <p>{{ $prop->description }}</p>
+                            </div>
+                            <div style="font-size: 18px;font-weight: bold">${{ number_format($prop->salary) }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+
+                    <h2><span>Rooms</span></h2>
 
                     <div id="isotope-options">
                         <ul id="isotope-filters" class="clearfix">
                             <li><a href="#" class="selected" data-filter="*">Show All</a></li>
-                            <li><a href="#" data-filter=".isotope-filter1">Category 1</a></li>
-                            <li><a href="#" data-filter=".isotope-filter2">Category 2</a></li>
-                            <li><a href="#" data-filter=".isotope-filter3">Category 3</a></li>
+                            <li><a href="#" data-filter=".baderoom">baderoom</a></li>
+                            <li><a href="#" data-filter=".bathroom">bathroom</a></li>
+                            <li><a href="#" data-filter=".kitchen">kitchen</a></li>
                         </ul>
                     </div>
 
                     <ul class="thumbnails" id="isotope-items">
-                        <li class="span4 isotope-element isotope-filter1">
-                            <div class="thumb-isotope">
-                                <div class="thumbnail clearfix">
-                                    <a href="images/blank.png">
-                                        <figure>
-                                            <img src="{{ asset('booking_assets/images/gallery01.jpg') }}" alt=""><em></em>
-                                        </figure>
-                                        <div class="caption">
-                                            Lorem ipsum dolor sit amet conse ctetur
-                                        </div>
-                                    </a>
+                        @foreach ($rooms as $room)
+                            <li class="span4 isotope-element {{ $room->type }}">
+                                <div class="thumb-isotope">
+                                    <div class="thumbnail clearfix">
+                                        <a href="{{ asset('rooms_image/' . $room->image->name) }}">
+                                            <figure>
+                                                <img src="{{ asset('rooms_image/' . $room->image->name) }}" alt=""><em></em>
+                                            </figure>
+                                            <div class="caption">
+                                                {{ $room->title }}
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="span4 isotope-element isotope-filter2">
-                            <div class="thumb-isotope">
-                                <div class="thumbnail clearfix">
-                                    <a href="images/blank.png">
-                                        <figure>
-                                            <img src="{{ asset('booking_assets/images/gallery02.jpg') }}" alt=""><em></em>
-                                        </figure>
-                                        <div class="caption">
-                                            Lorem ipsum dolor sit amet conse ctetur
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="span4 isotope-element isotope-filter3">
-                            <div class="thumb-isotope">
-                                <div class="thumbnail clearfix">
-                                    <a href="images/blank.png">
-                                        <figure>
-                                            <img src="{{ asset('booking_assets/images/gallery03.jpg') }}" alt=""><em></em>
-                                        </figure>
-                                        <div class="caption">
-                                            Lorem ipsum dolor sit amet conse ctetur
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="span4 isotope-element isotope-filter1">
-                            <div class="thumb-isotope">
-                                <div class="thumbnail clearfix">
-                                    <a href="images/blank.png">
-                                        <figure>
-                                            <img src="{{ asset('booking_assets/images/gallery04.jpg') }}" alt=""><em></em>
-                                        </figure>
-                                        <div class="caption">
-                                            Lorem ipsum dolor sit amet conse ctetur
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="span4 isotope-element isotope-filter2">
-                            <div class="thumb-isotope">
-                                <div class="thumbnail clearfix">
-                                    <a href="images/blank.png">
-                                        <figure>
-                                            <img src="{{ asset('booking_assets/images/gallery05.jpg') }}" alt=""><em></em>
-                                        </figure>
-                                        <div class="caption">
-                                            Lorem ipsum dolor sit amet conse ctetur
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="span4 isotope-element isotope-filter3">
-                            <div class="thumb-isotope">
-                                <div class="thumbnail clearfix">
-                                    <a href="images/blank.png">
-                                        <figure>
-                                            <img src="{{ asset('booking_assets/images/gallery06.jpg') }}" alt=""><em></em>
-                                        </figure>
-                                        <div class="caption">
-                                            Lorem ipsum dolor sit amet conse ctetur
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="span4 isotope-element isotope-filter1">
-                            <div class="thumb-isotope">
-                                <div class="thumbnail clearfix">
-                                    <a href="images/blank.png">
-                                        <figure>
-                                            <img src="{{ asset('booking_assets/images/gallery07.jpg') }}" alt=""><em></em>
-                                        </figure>
-                                        <div class="caption">
-                                            Lorem ipsum dolor sit amet conse ctetur
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="span4 isotope-element isotope-filter2">
-                            <div class="thumb-isotope">
-                                <div class="thumbnail clearfix">
-                                    <a href="images/blank.png">
-                                        <figure>
-                                            <img src="{{ asset('booking_assets/images/gallery08.jpg') }}" alt=""><em></em>
-                                        </figure>
-                                        <div class="caption">
-                                            Lorem ipsum dolor sit amet conse ctetur
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="span4 isotope-element isotope-filter3">
-                            <div class="thumb-isotope">
-                                <div class="thumbnail clearfix">
-                                    <a href="images/blank.png">
-                                        <figure>
-                                            <img src="{{ asset('booking_assets/images/gallery09.jpg') }}" alt=""><em></em>
-                                        </figure>
-                                        <div class="caption">
-                                            Lorem ipsum dolor sit amet conse ctetur
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -172,10 +88,10 @@
 @endsection
 
 @section('header')
-	<link rel="stylesheet" href="{{ asset('booking_assets/css/touchTouch.css') }}" type="text/css" media="screen">
-	<link rel="stylesheet" href="{{ asset('booking_assets/css/isotope.css') }}" type="text/css" media="screen">
-	<script type="text/javascript" src="{{ asset('booking_assets/js/touchTouch.jquery.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('booking_assets/js/jquery.isotope.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('booking_assets/css/touchTouch.css') }}" type="text/css" media="screen">
+    <link rel="stylesheet" href="{{ asset('booking_assets/css/isotope.css') }}" type="text/css" media="screen">
+    <script type="text/javascript" src="{{ asset('booking_assets/js/touchTouch.jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('booking_assets/js/jquery.isotope.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             //

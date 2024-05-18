@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Models\Property;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManager;
 
 use function PHPUnit\Framework\isNull;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class PropertyController extends Controller
 {
@@ -35,12 +37,12 @@ class PropertyController extends Controller
     {
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
             'count_rooms' => ['required', 'integer', 'min:1', 'max:100'],
             'count_bedrooms' => ['required', 'integer', 'min:1', 'max:100'],
             'count_bathrooms' => ['required', 'integer', 'min:1', 'max:100'],
             'salary' => ['required', 'integer'],
-            'image' => ['required', 'image', 'max:4048'],
+            'image' => ['required', 'image'],
         ]);
 
         $property = Property::create([
@@ -56,7 +58,9 @@ class PropertyController extends Controller
 
         $image_name = uniqid() . '.' . $image->getClientOriginalExtension();
 
-        $image->move(public_path('properties_image'), $image_name);
+        $manager = ImageManager::withDriver(Driver::class);
+        $img = $manager->read($image)->cover(270, 180);
+        $img->save(public_path('properties_image/'. $image_name));
 
         Image::create([
             'name' => $image_name,
@@ -92,12 +96,12 @@ class PropertyController extends Controller
         $property = Property::find($id);
         $validatedData = $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
             'count_rooms' => ['required', 'integer', 'min:1', 'max:100'],
             'count_bedrooms' => ['required', 'integer', 'min:1', 'max:100'],
             'count_bathrooms' => ['required', 'integer', 'min:1', 'max:100'],
             'salary' => ['required', 'integer'],
-            'image' => ['required', 'image', 'max:4048'],
+            'image' => ['image'],
         ]);
 
         $property->title = $validatedData['title'];
@@ -111,14 +115,18 @@ class PropertyController extends Controller
 
         if ($request->hasFile('image')) {
 
-            $fileName = $property->image->name;
-            Storage::delete('properties_image/' . $fileName);
+            if ($property->image) {
+                $fileName = $property->image->name;
+                Storage::delete('properties_image/' . $fileName);
+            }
 
             $image = $request->file('image');
 
             $image_name = uniqid() . '.' . $image->getClientOriginalExtension();
 
-            $image->move(public_path('properties_image'), $image_name);
+            $manager = new ImageManager(new Driver);
+            $img = $manager->read($image)->cover(270, 180);
+            $img->save(public_path('properties_image/' . $image_name));
 
             $image = Image::where('imageable_type', Property::class)->where('imageable_id',  $property->id)->first();
 

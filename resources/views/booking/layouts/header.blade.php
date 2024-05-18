@@ -65,7 +65,6 @@
                                     <li class="@yield('nav_home_active')"><a href="{{ route('home') }}">Home</a></li>
                                     <li class="@yield('nav_about_active')"><a href="{{ route('about') }}">About</a></li>
                                     <li class="@yield('nav_sales_active')"><a href="{{ route('sales') }}">Sales</a></li>
-                                    <li class="@yield('nav_gallery_active')"><a href="{{ route('gallery') }}">gallery</a></li>
                                     <li class="@yield('nav_contact_us_active')"><a href="{{ route('contact_us') }}">Contact us</a></li>
 
                                     {{-- logs --}}

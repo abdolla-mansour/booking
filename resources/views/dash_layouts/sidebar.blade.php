@@ -60,6 +60,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('dashboard.messages') }}" class="nav-link @yield('active_nav_message', '')">
+              <i class="far fa-envelope"></i>
+              <p>
+                Messages
+              </p>
+            </a>
+          </li>
 
           <li class="nav-item">
             <a href="#" class="nav-link {{ $active_layouts ?? '' }}">

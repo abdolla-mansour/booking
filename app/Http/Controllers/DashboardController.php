@@ -13,10 +13,7 @@ class DashboardController extends Controller
     {
         $latestUsers = User::with('image')->where('email', '!=', 'super_admin@app.com')->latest()->take(8)->get();
         $count = User::all()->count();
-        $latestProperties = Property::with('image')->latest()->take(8)->get();
-
-        // dd(Carbon::now()->format('d F'),
-        // $latestUsers->first()->created_at);
+        $latestProperties = Property::with('image')->latest()->take(4)->get();
 
         return view('index2', ['count' => $count, 'latestUsers' => $latestUsers, 'latestProperties' => $latestProperties]);
     }

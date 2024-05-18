@@ -6,8 +6,10 @@ use App\Models\User;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\Password;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class UserController extends Controller
 {
@@ -48,12 +50,14 @@ class UserController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
+            $img = $request->file('image');
 
-            $image = $request->file('image');
+            $manager = ImageManager::withDriver(Driver::class);
+            $image = $manager->read($img)->cover(800, 800);
 
-            $image_name = uniqid() . '.' . $image->getClientOriginalExtension();
-    
-            $image->move(public_path('users_image'), $image_name);
+            $image_name = uniqid() . '.' . $img->getClientOriginalExtension();
+
+            $image->save(public_path('users_image/' . $image_name));
 
             Image::create([
                 'name' => $image_name,
@@ -111,7 +115,10 @@ class UserController extends Controller
 
                 $image_name = uniqid() . '.' . $image->getClientOriginalExtension();
 
-                $image->move(public_path('users_image'), $image_name);
+                $manager = new ImageManager(new Driver);
+
+                $img = $manager->read($image)->cover(800, 800);
+                $img->save(public_path('users_image/' . $image_name));
 
                 $image = Image::where('imageable_type', User::class)->where('imageable_id',  $user->id)->first();
 
@@ -125,7 +132,10 @@ class UserController extends Controller
 
                 $image_name = uniqid() . '.' . $image->getClientOriginalExtension();
 
-                $image->move(public_path('users_image'), $image_name);
+                $manager = ImageManager::withDriver(new Driver);
+                $img = $manager->read($image)->cover(800, 800);
+
+                $img->save(public_path('users_image/' . $image_name));
 
                 Image::create([
                     'name' => $image_name,

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\RoomController;
@@ -32,8 +33,12 @@ Route::prefix('/dashboard')
         Route::get('rooms/{id}/{property_id}', [RoomController::class, 'edit'])->name('rooms.edit');
         Route::put('rooms/{id}/{property_id}', [RoomController::class, 'update'])->name('rooms.update');
         Route::delete('rooms/{id}/{property_id}', [RoomController::class, 'destroy'])->name('rooms.destroy');
-        // Route::post('rooms/{id}', [RoomController::class, 'store'])->name('rooms.store');
-        // Route::get('rooms/{id}', [RoomController::class, 'my_index'])->name('rooms.index');
+
+        // Messages
+        Route::get('messages', [ContactUsController::class, 'index'])->name('messages');
+        Route::delete('messages/{id}', [ContactUsController::class, 'delete'])->name('message.delete');
+        Route::post('messages/{id}', [ContactUsController::class, 'send'])->name('message.send');
+
 
         // layouts
         Route::view('layout', 'pages.layout.top-nav')->name('pages.layout-nav');

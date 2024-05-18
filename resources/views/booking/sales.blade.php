@@ -35,9 +35,9 @@
                                         <figure><img src="{{ asset('properties_image/' . $prop->image->name) }}" alt="" class="img"></figure>
                                         <div class="caption">
                                             <div class="txt1">{{ $prop->title }}</div>
-                                            <div class="txt2">{{ $prop->description }}</div>
+                                            <div class="txt2" style="height: 100px;overflow:hidden">{{ $prop->description }}</div>
                                             <div class="txt3">${{ number_format($prop->salary) }}</div>
-                                            <a href="#" class="button2">Read More</a>
+                                            <a href="{{ route('gallery', $prop->id) }}" class="button2">Read More</a>
                                         </div>
                                     </div>
                                 </div>
