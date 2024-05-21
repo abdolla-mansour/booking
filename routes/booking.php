@@ -11,7 +11,7 @@ Route::view('/', 'booking.index')->name('home');
 Route::view('about', 'booking.about')->name('about');
 
 Route::get('sales', function () {
-    $properties = Property::with('image')->paginate();
+    $properties = Property::with('image')->paginate(2);
     return view('booking.sales', ['props' => $properties]);
 })->name('sales');
 

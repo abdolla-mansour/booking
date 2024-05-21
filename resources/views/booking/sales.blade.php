@@ -45,7 +45,7 @@
                         @endforeach
                     </div>
 
-                    {{ $props->links() }}
+                    {{ $props->links('pagination::default') }}
                 </div>
             </div>
         </div>
