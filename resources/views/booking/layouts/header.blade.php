@@ -86,12 +86,15 @@
                         <a href="#" class="searchBtn"></a>
 
                         <div class="search-form-wrapper">
-                            <form id="search-form" action="" method="GET" accept-charset="utf-8" class="navbar-form">
-                                <label for="">Salary</label>
-                                <input style="margin-bottom: 12px;max-width: 27%;" class="d-inline" type="text" name="s" value='From' onBlur="if(this.value=='') this.value='From'" onFocus="if(this.value =='From' ) this.value=''">
-                                <input style="margin-bottom: 12px;max-width: 27%;" class="d-inline" type="text" name="s" value='To' onBlur="if(this.value=='') this.value='To'" onFocus="if(this.value =='To' ) this.value=''">
-                                <input style="margin-bottom: 12px" type="text" name="s" value='Count of pathroom' onBlur="if(this.value=='') this.value='Count of pathroom'" onFocus="if(this.value =='Count of pathroom' ) this.value=''">
-                                <input style="margin-bottom: 12px" type="text" name="s" value='Count of baderoom' onBlur="if(this.value=='') this.value='Count of baderoom'" onFocus="if(this.value =='Count of baderoom' ) this.value=''">
+                            <form id="search-form" action="{{ route('search') }}" method="POST" accept-charset="utf-8" class="navbar-form">
+                                @csrf
+                                <label>Salary</label>
+                                <input style="margin-bottom: 12px;max-width: 27%;" class="d-inline" type="text" name="salary_from" placeholder="From">
+                                <input style="margin-bottom: 12px;max-width: 27%;" class="d-inline" type="text" name="salary_to" placeholder="To">
+                                <input style="margin-bottom: 12px" type="text" name="count_bathroom" placeholder="count of bathroom">
+                                <input style="margin-bottom: 12px" type="text" name="count_bedroom" placeholder="Count of bedroom">
+                                <input style="margin-bottom: 12px" type="text" name="location" placeholder="Location">
+                                <input style="margin-bottom: 12px" type="text" name="property_type" placeholder="Property Type">
                                 <a style="position: relative" href="#" onClick="document.getElementById('search-form').submit()"></a>
                             </form>
                         </div>

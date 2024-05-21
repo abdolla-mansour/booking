@@ -10,7 +10,7 @@
 
                 <div class="txt1">welcome to</div>
 
-                <div class="txt2">real estate</div>
+                <div class="txt2">HotelHunt</div>
 
                 <div class="txt3">finder</div>
 
@@ -19,8 +19,9 @@
                 <div class="txt4">THE EASIEST WAY TO FIND PROPERTY</div>
 
                 <div class="find-form-wrapper clearfix">
-                    <form id="find-form" action="search.php" method="GET" accept-charset="utf-8" class="navbar-form clearfix">
-                        <input type="text" name="s" value='keyword' onBlur="if(this.value=='') this.value='keyword'" onFocus="if(this.value =='keyword' ) this.value=''">
+                    <form id="find-form" action="{{ route('search.home') }}" method="POST" accept-charset="utf-8" class="navbar-form clearfix">
+                        @csrf
+                        <input type="text" name="search" value='keyword' onBlur="if(this.value=='') this.value='keyword'" onFocus="if(this.value =='keyword' ) this.value=''">
                         <a href="#" onClick="document.getElementById('find-form').submit()"></a>
                     </form>
                 </div>

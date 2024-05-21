@@ -44,6 +44,8 @@
                             </div>
                         @endforeach
                     </div>
+
+                    {{ $props->links() }}
                 </div>
             </div>
         </div>

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('count_bedrooms');
             $table->integer('count_bathrooms');
             $table->integer('salary');
+            $table->string('location');
+            $table->string('property_type');
             $table->timestamps();
         });
     }

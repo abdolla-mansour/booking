@@ -76,15 +76,45 @@
                                                 <td>{{ $user->email }}</td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <form action="{{ route('dashboard.users.destroy', $user->id) }}" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger">Delete</button>
-                                                        </form>
+                                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_{{ $user->id }}">
+                                                            Delete
+                                                        </button>
                                                         <a href="{{ route('dashboard.users.edit', $user->id) }}" class="btn btn-primary">Update</a>
                                                     </div>
                                                 </td>
                                             </tr>
+
+
+
+
+
+                                            <!-- Delete Modal -->
+                                            <div class="modal fade" id="delete_{{ $user->id }}">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content bg-danger">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Delete Message</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>are you chore you want to delete this message ?</p>
+                                                        </div>
+                                                        <div class="modal-footer justify-content-between">
+                                                            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                                                            <form action="{{ route('dashboard.users.destroy', $user->id) }}" method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.modal-content -->
+                                                </div>
+                                                <!-- /.modal-dialog -->
+                                            </div>
+                                            <!-- /.modal -->
                                         @endforeach
                                     </tbody>
                                 </table>

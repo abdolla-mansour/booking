@@ -71,6 +71,16 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                             <br>
+                            <input name="location" value="{{ old('location') }}" class="form-control" type="text" placeholder="location">
+                            @error('location')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                            <br>
+                            <input name="property_type" value="{{ old('property_type') }}" class="form-control" type="text" placeholder="property_type">
+                            @error('property_type')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                            <br>
                             <div class="custom-file">
                                 <input onchange="changeImage(event)" name="image" type="file" class="custom-file-input" id="customFile">
                                 <label class="custom-file-label" for="customFile">Choose file</label>

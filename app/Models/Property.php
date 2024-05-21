@@ -16,6 +16,8 @@ class Property extends Model
         'count_bedrooms',
         'count_bathrooms',
         'salary',
+        'location',
+        'property_type',
     ];
 
     public function image()

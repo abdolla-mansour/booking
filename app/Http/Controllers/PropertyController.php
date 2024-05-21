@@ -42,6 +42,8 @@ class PropertyController extends Controller
             'count_bedrooms' => ['required', 'integer', 'min:1', 'max:100'],
             'count_bathrooms' => ['required', 'integer', 'min:1', 'max:100'],
             'salary' => ['required', 'integer'],
+            'location' => ['required', 'string'],
+            'property_type' => ['required', 'string'],
             'image' => ['required', 'image'],
         ]);
 
@@ -52,6 +54,8 @@ class PropertyController extends Controller
             'count_bedrooms' => $request->count_bedrooms,
             'count_bathrooms' => $request->count_bathrooms,
             'salary' => $request->salary,
+            'location' => $request->location,
+            'property_type' => $request->property_type,
         ]);
 
         $image = $request->file('image');
@@ -93,7 +97,6 @@ class PropertyController extends Controller
      */
     public function update(Request $request,  $id)
     {
-        $property = Property::find($id);
         $validatedData = $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
@@ -101,15 +104,23 @@ class PropertyController extends Controller
             'count_bedrooms' => ['required', 'integer', 'min:1', 'max:100'],
             'count_bathrooms' => ['required', 'integer', 'min:1', 'max:100'],
             'salary' => ['required', 'integer'],
+            'location' => ['required', 'string'],
+            'property_type' => ['required', 'string'],
             'image' => ['image'],
         ]);
 
+        $property = Property::find($id);
+        if (!$property) {
+            return redirect()->back();
+        }
         $property->title = $validatedData['title'];
         $property->description = $validatedData['description'];
         $property->count_rooms = $validatedData['count_rooms'];
         $property->count_bedrooms = $validatedData['count_bedrooms'];
         $property->count_bathrooms = $validatedData['count_bathrooms'];
         $property->salary = $validatedData['salary'];
+        $property->location = $validatedData['location'];
+        $property->property_type = $validatedData['property_type'];
 
         $property->save();
 

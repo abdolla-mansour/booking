@@ -62,6 +62,8 @@
                                             <th>Count of bedrooms</th>
                                             <th>Count of bathrooms</th>
                                             <th>Salary</th>
+                                            <th>Location</th>
+                                            <th>Property Type</th>
                                             <th>Rooms</th>
                                             <th>Control</th>
                                         </tr>
@@ -74,7 +76,8 @@
                                                     <img style="border-radius: 50%" width="50" height="50" src="{{ asset('properties_image/' . $prop->image->name) }}" alt="">
                                                 </td>
                                                 <td>{{ $prop->title }}</td>
-                                                <td style="
+                                                <td
+                                                    style="
                                                         display: block;
                                                         overflow: hidden;
                                                         text-overflow: ellipsis;
@@ -86,18 +89,50 @@
                                                 <td>{{ $prop->count_bedrooms }}</td>
                                                 <td>{{ $prop->count_bathrooms }}</td>
                                                 <td>{{ $prop->salary }}</td>
+                                                <td>{{ $prop->location }}</td>
+                                                <td>{{ $prop->property_type }}</td>
                                                 <td><a href="{{ route('dashboard.rooms.show', $prop->id) }}">Rooms</a></td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <form action="{{ route('dashboard.props.destroy', $prop->id) }}" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger">Delete</button>
-                                                        </form>
+                                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_{{ $prop->id }}">
+                                                            Delete
+                                                        </button>
                                                         <a href="{{ route('dashboard.props.edit', $prop->id) }}" class="btn btn-primary">Update</a>
                                                     </div>
                                                 </td>
                                             </tr>
+
+
+                                            <!-- Delete Modal -->
+                                            <div class="modal fade" id="delete_{{ $prop->id }}">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content bg-danger">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Delete Message</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>are you chore you want to delete this message ?</p>
+                                                        </div>
+                                                        <div class="modal-footer justify-content-between">
+                                                            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                                                            <form action="{{ route('dashboard.props.destroy', $prop->id) }}" method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <!-- Button trigger modal -->
+                                                                <button class="btn btn-danger">
+                                                                    Delete
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.modal-content -->
+                                                </div>
+                                                <!-- /.modal-dialog -->
+                                            </div>
+                                            <!-- /.modal -->
                                         @endforeach
                                     </tbody>
                                 </table>

@@ -36,8 +36,10 @@
                         <div class="thumbnail clearfix">
                             <figure class=""><img style="max-width: 300px" src="{{ asset('properties_image/' . $prop->image->name) }}" alt=""></figure>
                             <div class="caption">
-                                <p>{{ $prop->description }}</p>
+                                <p style="font-size: 16px">{{ $prop->description }}</p>
                             </div>
+                            <div style="font-size: 12px;font-weight: bold">Location : <span style="font-weight: 100">{{ $prop->location }}</span></div>
+                            <div style="font-size: 12px;font-weight: bold">Property type : <span style="font-weight: 100">{{ $prop->property_type }}</span></div>
                             <div style="font-size: 18px;font-weight: bold">${{ number_format($prop->salary) }}</div>
                         </div>
                     </div>
@@ -55,9 +57,9 @@
 
                     <div id="isotope-options">
                         <ul id="isotope-filters" class="clearfix">
-                            <li><a href="#" class="selected" data-filter="*">Show All</a></li>
-                            <li><a href="#" data-filter=".baderoom">baderoom</a></li>
-                            <li><a href="#" data-filter=".bathroom">bathroom</a></li>
+                            <li><a href="#" class="selected" data-filter="*">Show All {{ $prop->count_rooms }}</a></li>
+                            <li><a href="#" data-filter=".bedroom">bedroom {{ $prop->count_bedrooms }}</a></li>
+                            <li><a href="#" data-filter=".bathroom">bathroom {{ $prop->count_bathrooms }}</a></li>
                             <li><a href="#" data-filter=".kitchen">kitchen</a></li>
                         </ul>
                     </div>

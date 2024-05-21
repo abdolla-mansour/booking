@@ -71,7 +71,8 @@
                                                         </button>
                                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#read_{{ $message->id }}">
                                                             Read
-                                                        </button><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_{{ $message->id }}">
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_{{ $message->id }}">
                                                             Delete
                                                         </button>
                                                     </div>
@@ -162,8 +163,6 @@
                                                 <!-- /.modal-dialog -->
                                             </div>
                                             <!-- /.modal -->
-
-                                            
                                         @endforeach
                                     </tbody>
                                 </table>
